@@ -44,7 +44,7 @@ class SimpleApi extends Controller
                 'mobile' => $request->mobile
             ];
             // write data into text file
-            Storage::disk('local')->put('interview.txt',json_encode($content));
+            Storage::disk('local')->append('interview.txt', json_encode($content), null);
 
             return response(["msg"=>"Successfully write into file","status"=>"success","data"=>$content], 200);
         }
